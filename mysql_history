@@ -1,0 +1,29 @@
+flush privileges;
+create database registry_test;
+create database registry;
+use sonar
+create user 'sonar' identified by 'sonar'
+;
+create user "sonar" identified by "sonar"
+;
+create user 'sonar'@'localhost' identified by 'sonar';
+grant all on sonar.* to 'sonar'@'localhost' identified by 'sonar';
+grant all on sonar.* to 'sonar'@'%' identified by 'sonar';
+grant all privileges on 'sonar'@'localhost';
+grant all privileges on 'sonar'@'localhost' identified by 'sonar';
+grant all privileges on 'sonar@localhost' identified by 'sonar';
+grant ALL on sonar.* to 'sonar'@'localhost';
+grant ALL on sonar.* to 'admin'@'localhost';
+flush privileges;
+grant ALL on sonar.* to 'admin'@'localhost';
+quite
+create user 'sonar' identified by 'sonar';
+create user 'sonar'@'localhost' identified by 'sonar';
+drop user sonar;
+create user 'sonar' identified by 'sonar';
+use database sonar;
+use sonar
+show tables;
+show fields;
+quite
+quit
