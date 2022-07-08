@@ -59,9 +59,7 @@ public class SchemaRegistryTest extends SchemaRegistry {
     protected IDatabaseConnection getConnection() throws Exception
     {
  	 
-		// String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
-		String strNoSSL = "?useSSL=false";
-        jdbcConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registry_test"+strNoSSL, "admin", "admin");
+        jdbcConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registry_test", "admin", "admin");
         return new DatabaseConnection(jdbcConnection);
     }
     

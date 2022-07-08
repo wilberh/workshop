@@ -49,21 +49,30 @@ sudo systemctl enable jenkins.service
 
 
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+https://www.linuxshelltips.com/completely-uninstall-mysql-server-in-ubuntu/
+sudo apt purge mysql-server*  (fyi - removes binaries and configuration files)
+sudo rm -r /etc/mysql /var/lib/mysql
+sudo rm -r /var/log/mysql
+sudo apt autoremove
+
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo systemctl enable mysql.service
 
 sudo mysql
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+(or for older systems:
+CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
+)
 flush privileges;
 create database registry_test;
 create database registry;
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
 flush privileges;
 quit
 mysql -u admin -p
 sudo mysqladmin -p -u admin version
-
+sudo mysql_secure_installation
 
 
 $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
