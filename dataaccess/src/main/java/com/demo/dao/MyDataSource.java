@@ -34,6 +34,8 @@ public class MyDataSource {
         String strMySQLHost = "";
         String strMySQLPort = "";
         String strMySQLDatabase = "";
+        // String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
+        String strNoSSL = "?useSSL=false";
           
         try {
         	
@@ -54,14 +56,14 @@ public class MyDataSource {
             if(strMySQLDatabase == null || strMySQLDatabase.isEmpty()) {
             	strMySQLDatabase = "registry";
             }
-            mysqlDS.setURL("jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase);
+            mysqlDS.setURL("jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase+strNoSSL);
             mysqlDS.setUser("admin");
             mysqlDS.setPassword("admin");
             
-            logger.log(Level.INFO, "Attempting to use jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase);
+            logger.log(Level.INFO, "Attempting to use jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase+strNoSSL);
            } catch (Exception e) {
         	   
-        	   logger.log(Level.SEVERE, "Could not access database via connect string jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase,e);
+        	   logger.log(Level.SEVERE, "Could not access database via connect string jdbc:mysql://"+strMySQLHost+":"+strMySQLPort+"/"+strMySQLDatabase+strNoSSL,e);
            
            
             
