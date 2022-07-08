@@ -27,6 +27,10 @@ Environment="JENKINS_PORT=8081"
 vi /var/log/jenkins/jenkins.log
 sudo vi /etc/init.d/jenkins
 
+
+sudo apt install openjdk-8-jdk
+or
+sudo apt install openjdk-11-jdk
 java --version
 javac --version
 sudo apt install jenkins
@@ -48,6 +52,18 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo systemctl enable mysql.service
+
+sudo mysql
+flush privileges;
+create database registry_test;
+create database registry;
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+flush privileges;
+quit
+mysql -u admin -p
+sudo mysqladmin -p -u admin version
+
 
 
 $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword

@@ -2,10 +2,8 @@ flush privileges;
 create database registry_test;
 create database registry;
 use sonar
-create user 'sonar' identified by 'sonar'
-;
-create user "sonar" identified by "sonar"
-;
+create user 'sonar' identified by 'sonar';
+create user "sonar" identified by "sonar";
 create user 'sonar'@'localhost' identified by 'sonar';
 grant all on sonar.* to 'sonar'@'localhost' identified by 'sonar';
 grant all on sonar.* to 'sonar'@'%' identified by 'sonar';
