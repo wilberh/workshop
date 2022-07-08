@@ -44,6 +44,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 sudo systemctl enable jenkins.service
 
 
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
+sudo apt install mysql-server
+sudo systemctl start mysql.service
+sudo systemctl enable mysql.service
+
 
 $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 27419fa34ebf425480c9c1bcf181ae32
