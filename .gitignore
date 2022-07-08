@@ -7,3 +7,4 @@ build/
 *.lock
 *.war*
 */.classpath
+docker/gradle-4.9-bin.zip
