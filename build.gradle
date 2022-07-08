@@ -89,7 +89,7 @@ subprojects {
 	}
 	
 	dependencies {
-		compile 'mysql:mysql-connector-java:5.1.38'
+		compile 'mysql:mysql-connector-java:8.0.29'
 		compile "javax.ws.rs:jsr311-api:1.1.1" 
 		compile 'com.sun.jersey:jersey-server:1.19' 
 		compile 'com.sun.jersey:jersey-core:1.19' 
