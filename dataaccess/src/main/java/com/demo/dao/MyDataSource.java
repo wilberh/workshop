@@ -34,7 +34,8 @@ public class MyDataSource {
         String strMySQLHost = "";
         String strMySQLPort = "";
         String strMySQLDatabase = "";
-        String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
+        // String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
+        String strNoSSL = "?useSSL=false";
           
         try {
         	

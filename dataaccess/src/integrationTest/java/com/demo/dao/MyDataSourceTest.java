@@ -57,7 +57,8 @@ public class MyDataSourceTest extends MyDataSource {
     {
       
         
-        String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
+        // String strNoSSL = "?useSSL=false&allowPublicKeyRetrieval=true";
+        String strNoSSL = "?useSSL=false";
         jdbcConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registry_test"+strNoSSL, "admin", "admin");
         return new DatabaseConnection(jdbcConnection);
     }
