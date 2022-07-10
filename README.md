@@ -48,6 +48,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 sudo systemctl enable jenkins.service
 
 
+https://tecadmin.net/install-mysql-on-ubuntu-18-04-bionic/
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04
 https://www.linuxshelltips.com/completely-uninstall-mysql-server-in-ubuntu/
 sudo apt purge mysql-server*  (fyi - removes binaries and configuration files)
@@ -55,6 +56,25 @@ sudo rm -r /etc/mysql /var/lib/mysql
 sudo rm -r /var/log/mysql
 sudo apt autoremove
 
+https://computingforgeeks.com/how-to-install-mysql-on-ubuntu-focal/
+INSTALL VERSION 5.7.38 (on Ubuntu 20.04)-----------------
+sudo apt update
+
+sudo apt install wget -y
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+mysql -u root -p
+SELECT VERSION();
+FLUSH PRIVILEGES;
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
+exit
+sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+(change bind address to 0.0.0.0 to allow remote connections)
+sudo systemctl restart mysql
+
+INSTALL LATEST VERSION 8.** ------------------
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo systemctl enable mysql.service
@@ -72,7 +92,7 @@ flush privileges;
 quit
 mysql -u admin -p
 sudo mysqladmin -p -u admin version
-sudo mysql_secure_installation
+
 
 
 $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
